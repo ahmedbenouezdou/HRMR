@@ -1,0 +1,26 @@
+.main-nav {
+    border-bottom: 1px solid #fa5b00;
+    background: #fff;
+}
+
+
+
+/* IGNORE: Unrelated generic demo styles */
+
+body {
+    background: #fff;
+    color: #aaa;
+    font: 16px/1.5em 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.demo-text {
+    margin: 3em 22px;
+}
+
+.demo-text p {
+    margin-bottom: 1em;
+}
+
+.demo-text a {
+    color: #999;
+}

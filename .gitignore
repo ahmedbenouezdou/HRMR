@@ -1,4 +1,12 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
 bower_components
+/js/vendor.js
+/css/angular-bootstrap-datepicker.css
+/css/datetimepicker.css
+/css/bootstrap.min.css
+/css/angular-datepicker.min.css
+/css/font-awesome.min.css
+/css/angular-datepicker.css
+/css/bootstrap-theme.min.css
 node_modules
