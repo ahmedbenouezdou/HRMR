@@ -1,7 +1,7 @@
 {
-  "name": "AngularJSExampleProject",
+  "name": "HRMR",
   "version": "1.0.0",
-  "description": "AngularJS example project",
+  "description": "HRMR",
   "dependencies": {
     "body-parser": "^1.6.2",
     "connect-livereload": "*",
