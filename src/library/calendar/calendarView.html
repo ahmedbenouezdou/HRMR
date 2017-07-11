@@ -1,0 +1,93 @@
+<style>
+    .activitie {
+        text-align: center;
+        background-color: #009926;
+        color: #ffffff;
+
+    }
+
+    .noactivitie {
+        text-align: center;
+    }
+
+    .leave {
+        text-align: center;
+        background-color: #990733;
+        color: #ffffff;
+    }
+
+    .weekEnd {
+        text-align: center;
+        color: #990733;
+
+    }
+</style>
+<div class="row">
+    <div class="clo-lg-12">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th class="noactivitie">Lundi</th>
+                <th class="noactivitie">Mardi</th>
+                <th class="noactivitie">Mercredi</th>
+                <th class="noactivitie">Jeudi</th>
+                <th class="noactivitie">Vendredi</th>
+                <th class="noactivitie">Samdi</th>
+                <th class="noactivitie">Dimanche</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="days in $ctrl.calendarMonth">
+
+                    <td class="weekEnd" ng-repeat="day in days">{{day.day}}</td>
+            </tr>
+           <!-- <tr>
+                <td class="activitie">3</td>
+                <td class="activitie">4</td>
+                <td class="activitie">5</td>
+                <td class="noactivitie">6</td>
+                <td class="noactivitie">7</td>
+                <td class="weekEnd">8</td>
+                <td class="weekEnd">9</td>
+            </tr>
+            <tr>
+                <td class="leave">10</td>
+                <td class="leave">11</td>
+                <td class="activitie">12</td>
+                <td class="activitie">13</td>
+                <td class="activitie">14</td>
+                <td class="weekEnd">15</td>
+                <td class="weekEnd">16</td>
+            </tr>
+            <tr>
+                <td class="leave">17</td>
+                <td class="leave">18</td>
+                <td class="activitie">19</td>
+                <td class="activitie">20</td>
+                <td class="activitie">21</td>
+                <td class="weekEnd">22</td>
+                <td class="weekEnd">23</td>
+            </tr>
+            <tr>
+                <td class="noactivitie">24</td>
+                <td class="noactivitie">25</td>
+                <td class="noactivitie">26</td>
+                <td class="noactivitie">27</td>
+                <td class="noactivitie">28</td>
+                <td class="weekEnd">29</td>
+                <td class="weekEnd">30</td>
+            </tr>
+            <tr>
+                <td class="noactivitie">31</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="weekEnd"></td>
+                <td class="weekEnd"></td>
+            </tr>-->
+
+            </tbody>
+        </table>
+    </div>
+</div>

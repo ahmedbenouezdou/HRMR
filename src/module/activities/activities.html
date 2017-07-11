@@ -1,0 +1,129 @@
+<div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+
+        <h1 class="page-header"> Activities </h1>
+    </div>
+
+    <!-- /.col-lg-12 -->
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-3 col-lg-4">
+        <div class="form-group">
+            <input type="text" class="form-control" id="usr" ng-model="$ctrl.newActiv.title">
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-3 col-lg-3">
+        <datepicker date-format="yyyy-MM-dd" selector="form-control" date-disabled-weekdays="[0,6]"
+                    date-disabled-dates="{{$ctrl.disabledDates}}">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Date debut" ng-model="$ctrl.newActiv.startsAt"
+                       ng-change="$ctrl.initDate()"/>
+        <span class="input-group-addon" style="cursor: pointer">
+        <i class="fa fa-lg fa-calendar"></i>
+        </span>
+            </div>
+        </datepicker>
+    </div>
+
+    <div class="col-xs-12 col-md-3 col-lg-3">
+        <datepicker date-format="yyyy-MM-dd" selector="form-control" date-disabled-weekdays="[0,6]"
+                    date-min-limit="{{$ctrl.newActiv.startsAt}}" date-disabled-dates="{{$ctrl.disabledDates}}">
+            <div class="input-group">
+                <input class="form-control" placeholder="Date Fin" ng-model="$ctrl.newActiv.endsAt" type="text"/>
+        <span class="input-group-addon" style="cursor: pointer">
+        <i class="fa fa-lg fa-calendar"></i>
+        </span>
+            </div>
+        </datepicker>
+    </div>
+
+    <div class="col-xs-12 col-md-3 col-lg-2">
+        <button type="button" class="btn btn-success btn-circle" ng-click="$ctrl.addActivities()"><i
+                class="fa glyphicon-plus"></i>
+        </button>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-xs-4 col-md-4 text-center">
+        <div class="btn-group">
+
+            <button
+                    class="btn btn-primary"
+                    mwl-date-modifier
+                    date="vm.viewDate"
+                    decrement="vm.calendarView">
+                Previous
+            </button>
+        </div>
+    </div>
+    <div class="col-xs-4 col-md-4 text-center">
+        <h1 class="text-center">{{ vm.viewTitle }}</h1>
+    </div>
+    <div class="col-xs-4 col-md-4 text-center">
+
+        <button disabled="ctrl.editNextMonth()"
+                class="btn btn-primary"
+                mwl-date-modifier
+                date="vm.viewDate"
+                increment="vm.calendarView">
+            Next
+        </button>
+    </div>
+
+
+</div>
+<!--
+<div class="row">
+    <div class="clo-lg-4">
+
+    </div>
+    <div class="clo-lg-5">
+        <mwl-calendar
+                events="$ctrl.events"
+                view="$ctrl.calendarView"
+                view-date="$ctrl.viewDate"
+                cell-auto-open-disabled="true">
+        </mwl-calendar>
+    </div>
+    <div class="clo-lg-3">
+
+    </div>
+
+</div> -->
+
+
+<calendarcomponent></calendarcomponent>
+
+<div class="row">
+    {{$ctrl.events.length}}
+    <div class="col-xs-12 col-md-12 col-lg-12">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Titre activite</th>
+                <th>Date debut</th>
+                <th>Date Fin</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="activ in $ctrl.events">
+                <td>{{activ.title}}</td>
+                <td>{{activ.startsAt}}</td>
+                <td>{{activ.endsAt}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-circle" ng-click="$ctrl.removeActivities($index)"><i
+                            class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-success btn-circle" ng-click="$ctrl.removeEdit($index)"><i
+                            class="fa fa-pencil"></i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
