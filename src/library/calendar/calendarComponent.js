@@ -2,7 +2,6 @@ function calendarController() {
     var ctrl = this;
 
     function init() {
-        console.log(ctrl.month);
         initMonth();
     }
 
@@ -25,7 +24,6 @@ function calendarController() {
         var nbDayMonth = workingDayWorked(ctrl.month, false);
         ctrl.calendarMonth = [];
         ctrl.monthYears = moment(new Date(ctrl.years, ctrl.month, 1)).format("MM/YYYY");
-
         var Base = new Date(ctrl.years, ctrl.month, 1);
 
         var weekDay = [];
@@ -35,12 +33,12 @@ function calendarController() {
             if (dateEvent.getDay() === 1) {
                 weekDay = [];
             }
-            weekDay.push({date: dateEvent, nbjour: dateEvent.getDay(), day: i + 1});
+            weekDay.push({date: dateEvent, nbjour: dateEvent.getDay(), day: i + 1,classCss:(dateEvent.getDay()!==6 && dateEvent.getDay()!==0 )?'noactivitie':'weekEnd'});
             if (dateEvent.getDay() === 0) {
                 var weekDayLength = angular.copy(weekDay.length);
                 if (weekDay.length != 7) {
                     for (var iDateWeek = 0; iDateWeek < (7 - weekDayLength); iDateWeek++) {
-                        weekDay.splice(iDateWeek, 0, {date: '', nbjour: '', day: ''});
+                        weekDay.splice(iDateWeek, 0, {date: '', nbjour: '', day: '',classCss:'noactivitie'});
                     }
                     ctrl.calendarMonth.push(weekDay);
                 } else {
