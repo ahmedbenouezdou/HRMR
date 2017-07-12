@@ -9,6 +9,9 @@ function activitiesController(moment, calendarConfig,activitiesService) {
     calendarConfig.i18nStrings.weekNumber = 'Semaine {week}';
 
     function init() {
+        ctrl.month = new Date().getUTCMonth();
+        ctrl.years = new Date().getUTCFullYear();
+
         ctrl.disabledDates=[];
         ctrl.events = [
             {

@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="col-xs-4 col-md-4 text-center">
-        <h2 style="  margin-top: 0px">{{ $ctrl.monthYears }}</h2>
+        <h2 style="  margin-top: 0px">{{ $ctrl.month }}</h2>
     </div>
     <div class="col-xs-4 col-md-4 text-center">
         <div class="btn-group">
@@ -62,7 +62,7 @@
             <tbody>
             <tr ng-repeat="days in $ctrl.calendarMonth">
 
-                    <td class="weekEnd" ng-repeat="day in days">{{day.day}}</td>
+                    <td class="noactivitie" ng-repeat="day in days">{{day.day}}</td>
             </tr>
            <!-- <tr>
                 <td class="activitie">3</td>
@@ -73,44 +73,11 @@
                 <td class="weekEnd">8</td>
                 <td class="weekEnd">9</td>
             </tr>
-            <tr>
-                <td class="leave">10</td>
-                <td class="leave">11</td>
-                <td class="activitie">12</td>
-                <td class="activitie">13</td>
-                <td class="activitie">14</td>
-                <td class="weekEnd">15</td>
-                <td class="weekEnd">16</td>
-            </tr>
-            <tr>
-                <td class="leave">17</td>
-                <td class="leave">18</td>
-                <td class="activitie">19</td>
-                <td class="activitie">20</td>
-                <td class="activitie">21</td>
-                <td class="weekEnd">22</td>
-                <td class="weekEnd">23</td>
-            </tr>
-            <tr>
-                <td class="noactivitie">24</td>
-                <td class="noactivitie">25</td>
-                <td class="noactivitie">26</td>
-                <td class="noactivitie">27</td>
-                <td class="noactivitie">28</td>
-                <td class="weekEnd">29</td>
-                <td class="weekEnd">30</td>
-            </tr>
-            <tr>
-                <td class="noactivitie">31</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="weekEnd"></td>
-                <td class="weekEnd"></td>
-            </tr>-->
+  -->
 
             </tbody>
         </table>
     </div>
 </div>
+
+{{$ctrl.events}}

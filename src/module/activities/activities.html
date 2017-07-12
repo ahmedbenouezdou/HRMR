@@ -46,27 +46,9 @@
 </div>
 
 
-<!--
-<div class="row">
-    <div class="clo-lg-4">
+{{$ctrl.month}}{{$ctrl.years}}
 
-    </div>
-    <div class="clo-lg-5">
-        <mwl-calendar
-                events="$ctrl.events"
-                view="$ctrl.calendarView"
-                view-date="$ctrl.viewDate"
-                cell-auto-open-disabled="true">
-        </mwl-calendar>
-    </div>
-    <div class="clo-lg-3">
-
-    </div>
-
-</div> -->
-
-
-<calendarcomponent></calendarcomponent>
+<calendarcomponent events="$ctrl.events" month="$ctrl.month" years="$ctrl.years"></calendarcomponent>
 
 <div class="row">
     {{$ctrl.events.length}}
