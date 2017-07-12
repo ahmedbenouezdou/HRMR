@@ -30,8 +30,6 @@ function activitiesController(moment, calendarConfig,activitiesService) {
         ctrl.calendarView = 'month';
         ctrl.viewDate = moment().startOf('month').toDate();
         ctrl.disabledDates=activitiesService.disabledDates;
-
-
     }
 
 
@@ -72,6 +70,8 @@ function activitiesController(moment, calendarConfig,activitiesService) {
     ctrl.editNextMonth =function editNextMonth(){
         return (workingDayWorked() === ctrl.events.length);
     };
+
+
 
     init();
 }

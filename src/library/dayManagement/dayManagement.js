@@ -47,3 +47,4 @@ function diffdate(d1, d2, u) {
     var Diff = d2.getTime() - d1.getTime();
     return Math.ceil((Diff / div))
 }
+

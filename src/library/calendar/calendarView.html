@@ -22,6 +22,29 @@
 
     }
 </style>
+
+<div class="row">
+
+    <div class="col-xs-4 col-md-4 text-center">
+        <div class="btn-group">
+            <button class="btn btn-primary" ng-click="$ctrl.previousMonth()">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+            </button>
+        </div>
+    </div>
+    <div class="col-xs-4 col-md-4 text-center">
+        <h2 style="  margin-top: 0px">{{ $ctrl.monthYears }}</h2>
+    </div>
+    <div class="col-xs-4 col-md-4 text-center">
+        <div class="btn-group">
+        <button class="btn btn-primary"  ng-click="$ctrl.nextMonth()">
+           <i class="glyphicon glyphicon-chevron-right"></i>
+        </button>
+            </div>
+    </div>
+
+</div>
+
 <div class="row">
     <div class="clo-lg-12">
         <table class="table table-striped">
