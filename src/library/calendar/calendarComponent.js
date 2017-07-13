@@ -1,29 +1,21 @@
 function calendarController() {
     var ctrl = this;
 
-    function init() {
+    ctrl.$onInit = function() {
         initMonth();
-    }
-
-    ctrl.previousMonth = function previousMonth() {
-
-        ctrl.month = ctrl.month - 1;
-        initMonth();
-
     };
 
-    ctrl.nextMonth = function nextMonth() {
+    this.$onChanges  = function (changesObj) {
 
-        ctrl.month = ctrl.month + 1;
-
-        initMonth();
+        ctrl.month=angular.copy(changesObj.monthevents.currentValue.month);
+        ctrl.years=angular.copy(changesObj.monthevents.currentValue.years);
 
     };
 
     function initMonth() {
         var nbDayMonth = workingDayWorked(ctrl.month, false);
         ctrl.calendarMonth = [];
-        ctrl.monthYears = moment(new Date(ctrl.years, ctrl.month, 1)).format("MM/YYYY");
+
         var Base = new Date(ctrl.years, ctrl.month, 1);
 
         var weekDay = [];
@@ -51,7 +43,7 @@ function calendarController() {
         }
     }
 
-    init();
+
 }
 
 
@@ -60,9 +52,8 @@ calendarController.$injector = [];
 angular.module('calendarModule', []).component('calendarcomponent', {
     templateUrl: 'src/library/calendar/calendarView.html',
     controller: calendarController,
+    controllerAs: 'ctrl',
     bindings: {
-        events: "=",
-        month:"=",
-        years:'='
+        monthevents:"="
     }
 });

@@ -8,9 +8,11 @@ function activitiesController(moment, calendarConfig,activitiesService) {
     var originali18n = angular.copy(calendarConfig.i18nStrings);
     calendarConfig.i18nStrings.weekNumber = 'Semaine {week}';
 
-    function init() {
+    ctrl.$onInit = function() {
         ctrl.month = new Date().getUTCMonth();
         ctrl.years = new Date().getUTCFullYear();
+        ctrl.monthYears = moment(new Date(ctrl.years, ctrl.month, 1)).format("MM/YYYY");
+
 
         ctrl.disabledDates=[];
         ctrl.events = [
@@ -33,7 +35,12 @@ function activitiesController(moment, calendarConfig,activitiesService) {
         ctrl.calendarView = 'month';
         ctrl.viewDate = moment().startOf('month').toDate();
         ctrl.disabledDates=activitiesService.disabledDates;
-    }
+        ctrl.monthevents={
+            month: ctrl.month,
+            years:ctrl.years,
+            events:ctrl.events
+        }
+    };
 
 
     ctrl.addActivities = function addActivities() {
@@ -75,8 +82,22 @@ function activitiesController(moment, calendarConfig,activitiesService) {
     };
 
 
+    ctrl.previousMonth = function previousMonth() {
 
-    init();
+        ctrl.month = ctrl.month - 1;
+        ctrl.monthYears = moment(new Date(ctrl.years, ctrl.month, 1)).format("MM/YYYY");
+        //ctrl.initMonth();
+
+    };
+
+    ctrl.nextMonth = function nextMonth() {
+
+        ctrl.month = ctrl.month + 1;
+        ctrl.monthYears = moment(new Date(ctrl.years, ctrl.month, 1)).format("MM/YYYY");
+        //ctrl.initMonth();
+
+    };
+
 }
 
 activitiesController.$injector = ['moment', 'calendarConfig'];
