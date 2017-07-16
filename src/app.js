@@ -27,7 +27,13 @@ appPersonnel.config(function($stateProvider) {
         component: 'gestionPersonnelComponent'
     };
 
-    $stateProvider.state(home)
+    var leaveRequest = {
+        name: 'leaveRequest',
+        url: '/leaveRequest',
+        component: 'leaveRequestComponent'
+    };
+
+    $stateProvider.state(home).state(leaveRequest)
         .state('activities',{
             name: 'activities',
             url: '/activities',
@@ -37,8 +43,8 @@ appPersonnel.config(function($stateProvider) {
 
 appPersonnel.run(function(){
     moment.lang('fr', {
-        months : "janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre".split("_"),
-        monthsShort : "janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.".split("_"),
+        months : "janvier_fï¿½vrier_mars_avril_mai_juin_juillet_aoï¿½t_septembre_octobre_novembre_dï¿½cembre".split("_"),
+        monthsShort : "janv._fï¿½vr._mars_avr._mai_juin_juil._aoï¿½t_sept._oct._nov._dï¿½c.".split("_"),
         weekdays : "dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi".split("_"),
         weekdaysShort : "dim._lun._mar._mer._jeu._ven._sam.".split("_"),
         weekdaysMin : "Di_Lu_Ma_Me_Je_Ve_Sa".split("_"),
@@ -50,11 +56,11 @@ appPersonnel.run(function(){
             LLLL : "dddd D MMMM YYYY LT"
         },
         calendar : {
-            sameDay: "[Aujourd'hui à] LT",
-            nextDay: '[Demain à] LT',
-            nextWeek: 'dddd [à] LT',
-            lastDay: '[Hier à] LT',
-            lastWeek: 'dddd [dernier à] LT',
+            sameDay: "[Aujourd'hui ï¿½] LT",
+            nextDay: '[Demain ï¿½] LT',
+            nextWeek: 'dddd [ï¿½] LT',
+            lastDay: '[Hier ï¿½] LT',
+            lastWeek: 'dddd [dernier ï¿½] LT',
             sameElse: 'L'
         },
         relativeTime : {
@@ -69,11 +75,11 @@ appPersonnel.run(function(){
             dd : "%d jours",
             M : "un mois",
             MM : "%d mois",
-            y : "une année",
-            yy : "%d années"
+            y : "une annï¿½e",
+            yy : "%d annï¿½es"
         },
         ordinal : function (number) {
-            return number + (number === 1 ? 'er' : 'ème');
+            return number + (number === 1 ? 'er' : 'ï¿½me');
         },
         week : {
             dow : 1, // Monday is the first day of the week.
