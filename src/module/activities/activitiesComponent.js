@@ -86,15 +86,22 @@ function activitiesController(moment, calendarConfig,activitiesService) {
 
         ctrl.month = ctrl.month - 1;
         ctrl.monthYears = moment(new Date(ctrl.years, ctrl.month, 1)).format("MM/YYYY");
-        //ctrl.initMonth();
-
+        ctrl.monthevents={
+            month:  new Date(new Date(ctrl.years, ctrl.month, 1)).getUTCMonth(),
+            years: new Date(new Date(ctrl.years, ctrl.month, 1)).getUTCFullYear(),
+            events:ctrl.events
+        };
     };
 
     ctrl.nextMonth = function nextMonth() {
 
         ctrl.month = ctrl.month + 1;
         ctrl.monthYears = moment(new Date(ctrl.years, ctrl.month, 1)).format("MM/YYYY");
-        //ctrl.initMonth();
+        ctrl.monthevents={
+            month:  new Date(new Date(ctrl.years, ctrl.month, 1)).getUTCMonth(),
+            years: new Date(new Date(ctrl.years, ctrl.month, 1)).getUTCFullYear(),
+            events:ctrl.events
+        };
 
     };
 
@@ -103,7 +110,9 @@ function activitiesController(moment, calendarConfig,activitiesService) {
 activitiesController.$injector = ['moment', 'calendarConfig'];
 
 angular.module('activitiesModule').component('activitiescomponent', {
+    transclude: true,
     templateUrl: 'src/module/activities/activities.html',
     controller: activitiesController
+
 });
 
