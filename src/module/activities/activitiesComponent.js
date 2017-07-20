@@ -18,15 +18,15 @@ function activitiesController(moment, calendarConfig,activitiesService) {
         ctrl.events = [
             {
                 title: 'Event 1',
-                color: calendarConfig.colorTypes.info,
-                startsAt: moment("01062017", "DD/MM/YYYY").startOf('day').toDate(),
-                endsAt: moment("01062017", "DD/MM/YYYY").startOf('day').toDate()
+                color: calendarConfig.colorTypes.info.primary,
+                startsAt: moment("01072017", "DD/MM/YYYY").startOf('day').toDate(),
+                endsAt: moment("01072017", "DD/MM/YYYY").startOf('day').toDate()
             },
             {
                 title: 'Event 2',
-                color: calendarConfig.colorTypes.info,
-                startsAt: moment("05062017", "DD/MM/YYYY").startOf('day').toDate(),
-                endsAt: moment("05062017", "DD/MM/YYYY").startOf('day').toDate()
+                color: calendarConfig.colorTypes.info.primary,
+                startsAt: moment("05072017", "DD/MM/YYYY").startOf('day').toDate(),
+                endsAt: moment("05072017", "DD/MM/YYYY").startOf('day').toDate()
             }
         ];
         // ctrl.newActiv.startsAt= moment("01062017", "DD/MM/YYYY")
@@ -53,7 +53,6 @@ function activitiesController(moment, calendarConfig,activitiesService) {
                 activity.startsAt = moment(new Date(dateEvent).toISOString()).format(" YYYY/MM/DD");
                 activity.endsAt = moment(new Date(dateEvent).toISOString()).format(" YYYY/MM/DD");
                 ctrl.disabledDates.push(moment(new Date(dateEvent).toISOString()).format(" YYYY/MM/DD"));
-                console.log(activity);
                 ctrl.events.push(activity);
             }
         }
