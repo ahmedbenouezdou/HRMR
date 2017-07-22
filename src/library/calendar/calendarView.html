@@ -1,28 +1,4 @@
-<style>
-    .activitie {
-        text-align: center;
-        background-color: #009926;
-        color: #ffffff;
-
-    }
-
-    .noactivitie {
-        text-align: center;
-    }
-
-    .leave {
-        text-align: center;
-        background-color: #990733;
-        color: #ffffff;
-    }
-
-    .weekEnd {
-        text-align: center;
-        color: #990733;
-
-    }
-</style>
-
+<link rel="stylesheet" href='src/library/calendar/calendar.css'>
 
 
 <div class="row">
@@ -30,13 +6,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th class="noactivitie">Lundi</th>
-                <th class="noactivitie">Mardi</th>
-                <th class="noactivitie">Mercredi</th>
-                <th class="noactivitie">Jeudi</th>
-                <th class="noactivitie">Vendredi</th>
-                <th class="noactivitie">Samdi</th>
-                <th class="noactivitie">Dimanche</th>
+                <th class="noactivitie" ng-repeat="day in ctrl.days">{{day}}</th>
             </tr>
             </thead>
             <tbody>

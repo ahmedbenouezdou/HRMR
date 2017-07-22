@@ -1,18 +1,24 @@
 function calendarController() {
     var ctrl = this;
 
-    var previousValue;
+    var previousValueMonth,previousValueEvents;
 
     ctrl.$onInit = function () {
+        ctrl.days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
         initMonth();
     };
 
 
     this.$doCheck = function () {
-        var currentValue = ctrl.monthevents.month;
-        if (previousValue !== currentValue) {
-            console.log('doCheck: date mutated: ' + ctrl.monthevents.month);
-            previousValue = currentValue;
+        var currentValueMonth = ctrl.monthevents.month;
+        if (previousValueMonth !== currentValueMonth) {
+            console.log('doCheck: Month: ' + ctrl.monthevents.month);
+            previousValueMonth = currentValueMonth;
+            initMonth();
+        } var currentValueEvents = ctrl.monthevents.events.length;
+        if (previousValueEvents !== currentValueEvents) {
+            console.log('doCheck: events: ' + ctrl.monthevents.events.length);
+            previousValueEvents = currentValueEvents;
             initMonth();
         }
     };
@@ -68,9 +74,16 @@ function calendarController() {
                 return 'weekEnd';
                 break;
             default :
+                var active = '';
                 ctrl.monthevents.events.some(function (element) {
-                    return (new Date(element.startsAt).getDate() == indexJour) ? "activitie" : 'noactivitie';
+                    if ((new Date(element.startsAt).getDate() == indexJour)) {
+                        active = "activitie";
+                        return true;
+                    }
+                    else
+                        active = 'noactivitie';
                 });
+                return active;
                 break;
         }
     }
