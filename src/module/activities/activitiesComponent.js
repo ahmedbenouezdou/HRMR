@@ -19,14 +19,16 @@ function activitiesController(moment, calendarConfig,activitiesService) {
             {
                 title: 'Event 1',
                 color: calendarConfig.colorTypes.info.primary,
-                startsAt: moment("01072017", "DD/MM/YYYY").startOf('day').toDate(),
-                endsAt: moment("01072017", "DD/MM/YYYY").startOf('day').toDate()
+                startsAt: moment("13072017", "DD/MM/YYYY").startOf('day').toDate(),
+                endsAt: moment("13072017", "DD/MM/YYYY").startOf('day').toDate(),
+                etat:1
             },
             {
                 title: 'Event 2',
                 color: calendarConfig.colorTypes.info.primary,
                 startsAt: moment("05072017", "DD/MM/YYYY").startOf('day').toDate(),
-                endsAt: moment("05072017", "DD/MM/YYYY").startOf('day').toDate()
+                endsAt: moment("05072017", "DD/MM/YYYY").startOf('day').toDate(),
+                etat:1
             }
         ];
         // ctrl.newActiv.startsAt= moment("01062017", "DD/MM/YYYY")
@@ -52,6 +54,7 @@ function activitiesController(moment, calendarConfig,activitiesService) {
                 activity.color = calendarConfig.colorTypes.info;
                 activity.startsAt = moment(new Date(dateEvent).toISOString()).format(" YYYY/MM/DD");
                 activity.endsAt = moment(new Date(dateEvent).toISOString()).format(" YYYY/MM/DD");
+                activity.etat=1;
                 ctrl.disabledDates.push(moment(new Date(dateEvent).toISOString()).format(" YYYY/MM/DD"));
                 ctrl.events.push(activity);
             }

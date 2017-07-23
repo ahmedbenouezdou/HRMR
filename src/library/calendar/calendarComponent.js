@@ -1,7 +1,7 @@
 function calendarController() {
     var ctrl = this;
 
-    var previousValueMonth,previousValueEvents;
+    var previousValueMonth, previousValueEvents;
 
     ctrl.$onInit = function () {
         ctrl.days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
@@ -15,7 +15,8 @@ function calendarController() {
             console.log('doCheck: Month: ' + ctrl.monthevents.month);
             previousValueMonth = currentValueMonth;
             initMonth();
-        } var currentValueEvents = ctrl.monthevents.events.length;
+        }
+        var currentValueEvents = ctrl.monthevents.events.length;
         if (previousValueEvents !== currentValueEvents) {
             console.log('doCheck: events: ' + ctrl.monthevents.events.length);
             previousValueEvents = currentValueEvents;
@@ -76,17 +77,28 @@ function calendarController() {
             default :
                 var active = '';
                 ctrl.monthevents.events.some(function (element) {
-                    if ((new Date(element.startsAt).getDate() == indexJour)) {
-                        active = "activitie";
-                        return true;
-                    }
-                    else
-                        active = 'noactivitie';
-                });
-                return active;
-                break;
+                    if ((new Date(element.startsAt).getDate() == indexJour)){
+                        switch (element.etat) {
+                            case 0:
+                                active = "leave";
+                                break;
+                            case 1:
+                                active = "activitie";
+
+                                break;
+
+                        }
+                    return true;
+                }
+            else
+                active = 'noactivitie';
         }
+    )
+        ;
+        return active;
+        break;
     }
+}
 }
 
 
