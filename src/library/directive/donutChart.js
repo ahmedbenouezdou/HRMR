@@ -1,16 +1,14 @@
-angular.module('barchartModule',[]).directive('barchart', function() {
+angular.module('barchartModule',[]).directive('donutchart', function() {
 
     return {
 
-        // required to make it work as an element
         restrict: 'E',
         template: '<div></div>',
         replace: true,
-        // observe and manipulate the DOM
         link: function($scope, element, attrs) {
 
 
-            var elementDonut= $scope[attrs.elementDonut],
+            var elementDonut= $scope[attrs.elementdonut],
                 data = $scope[attrs.data],
                 resize = $scope[attrs.resize];
 

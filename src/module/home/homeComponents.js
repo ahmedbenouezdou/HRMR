@@ -8,7 +8,7 @@ function homeController() {
 
 
 
-        ctrl.elementDonut= 'morris-donut-chart';
+        ctrl.elementdonut= 'morris-donut-chart';
             ctrl.data= [{
             label: "Download Sales",
             value: 12
