@@ -89,5 +89,5 @@ appPersonnel.run(function(){
 });
 
 angular.module('activitiesModule',['mwl.calendar', 'ngAnimate','calendarModule']);
-angular.module('homeModule',[]);
+angular.module('homeModule',['barchartModule']);
 angular.module('gestionPersonnelModule',[]);
