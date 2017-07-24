@@ -8,46 +8,50 @@
 </div>
 
 <div class="row">
-    <div class="col-xs-12 col-md-3 col-lg-4">
-        <div class="form-group">
-            <input type="text" class="form-control" id="usr" ng-model="$ctrl.newActiv.title">
+    <form name="newFeed" novalidate>
+        <div class="col-xs-12 col-md-3 col-lg-4">
+            <div class="form-group">
+                <input type="text" class="form-control" id="usr" ng-model="$ctrl.newActiv.title" required>
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-md-3 col-lg-3">
-        <datepicker date-format="yyyy-MM-dd" selector="form-control" date-disabled-weekdays="[0,6]"
-                    date-disabled-dates="{{$ctrl.disabledDates}}">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Date debut" ng-model="$ctrl.newActiv.startsAt"
-                       ng-change="$ctrl.initDate()"/>
+        <div class="col-xs-12 col-md-3 col-lg-3">
+            <datepicker date-format="yyyy-MM-dd" selector="form-control" date-disabled-weekdays="[0,6]"
+                        date-disabled-dates="{{$ctrl.disabledDates}}">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Date debut" ng-model="$ctrl.newActiv.startsAt"
+                           ng-change="$ctrl.initDate()" required/>
         <span class="input-group-addon" style="cursor: pointer">
         <i class="fa fa-lg fa-calendar"></i>
         </span>
-            </div>
-        </datepicker>
-    </div>
+                </div>
+            </datepicker>
+        </div>
 
-    <div class="col-xs-12 col-md-3 col-lg-3">
-        <datepicker date-format="yyyy-MM-dd" selector="form-control" date-disabled-weekdays="[0,6]"
-                    date-min-limit="{{$ctrl.newActiv.startsAt}}" date-disabled-dates="{{$ctrl.disabledDates}}">
-            <div class="input-group">
-                <input class="form-control" placeholder="Date Fin" ng-model="$ctrl.newActiv.endsAt" type="text"/>
+        <div class="col-xs-12 col-md-3 col-lg-3">
+            <datepicker date-format="yyyy-MM-dd" selector="form-control" date-disabled-weekdays="[0,6]"
+                        date-min-limit="{{$ctrl.newActiv.startsAt}}" date-disabled-dates="{{$ctrl.disabledDates}}">
+                <div class="input-group">
+                    <input class="form-control" placeholder="Date Fin" ng-model="$ctrl.newActiv.endsAt" type="text"
+                           required/>
         <span class="input-group-addon" style="cursor: pointer">
         <i class="fa fa-lg fa-calendar"></i>
         </span>
-            </div>
-        </datepicker>
-    </div>
+                </div>
+            </datepicker>
+        </div>
 
-    <div class="col-xs-12 col-md-3 col-lg-2">
-        <button type="button" class="btn btn-success btn-circle" ng-click="$ctrl.addActivities()"><i
-                class="fa glyphicon-plus"></i>
-        </button>
-    </div>
+        <div class="col-xs-12 col-md-3 col-lg-2">
+            <button type="button" class="btn btn-success btn-circle" ng-click="$ctrl.addActivities()"
+                    ng-disabled="!newFeed.$valid">
+                <i class="fa glyphicon-plus"></i>
+            </button>
+        </div>
+    </form>
 </div>
 
 <div class="row">
 
-    <div class="col-xs-4 col-md-4 text-center">
+    <div class="col-xs-4 col-md-3 text-center">
         <div class="btn-group">
             <button class="btn btn-primary" ng-click="$ctrl.previousMonth()">
                 <i class="glyphicon glyphicon-chevron-left"></i>
@@ -55,22 +59,32 @@
         </div>
     </div>
     <div class="col-xs-4 col-md-4 text-center">
-        <h2 style="  margin-top: 0px">{{ $ctrl.monthYears  }}</h2>
+        <h2 style="  margin-top: 0px">{{ $ctrl.monthYears }}</h2>
     </div>
-    <div class="col-xs-4 col-md-4 text-center">
+    <div class="col-xs-4 col-md-3 text-center">
         <div class="btn-group">
-            <button class="btn btn-primary"  ng-click="$ctrl.nextMonth()">
+            <button class="btn btn-primary" ng-click="$ctrl.nextMonth()">
                 <i class="glyphicon glyphicon-chevron-right"></i>
             </button>
         </div>
     </div>
+    <div class="col-xs-4 col-md-2 text-center">
+        <div class="btn-group">
+            <button class="btn btn-primary" ng-click="$ctrl.changeView()">
+                <i ng-if="$ctrl.changeViewIcon" class="glyphicon glyphicon glyphicon-th-list"></i>
+                <i ng-if="!$ctrl.changeViewIcon" class="glyphicon glyphicon glyphicon-th"></i>
+            </button>
 
+        </div>
+    </div>
 </div>
 
-
-<calendarcomponent monthevents="$ctrl.monthevents" ></calendarcomponent>
-
-<div class="row">
+<div class="row" ng-if="$ctrl.changeViewIcon">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+        <calendarcomponent monthevents="$ctrl.monthevents"></calendarcomponent>
+    </div>
+</div>
+<div class="row" ng-if="!$ctrl.changeViewIcon">
     <div class="col-xs-12 col-md-12 col-lg-12">
         <table class="table">
             <thead>

@@ -41,7 +41,9 @@ function activitiesController(moment, calendarConfig,activitiesService) {
             month: ctrl.month,
             years:ctrl.years,
             events:ctrl.events
-        }
+        };
+
+        ctrl.changeViewIcon=true;
     };
 
 
@@ -55,6 +57,7 @@ function activitiesController(moment, calendarConfig,activitiesService) {
                 activity.startsAt = moment(new Date(dateEvent).toISOString()).format(" YYYY/MM/DD");
                 activity.endsAt = moment(new Date(dateEvent).toISOString()).format(" YYYY/MM/DD");
                 activity.etat=1;
+                activity.title=ctrl.newActiv.title;
                 ctrl.disabledDates.push(moment(new Date(dateEvent).toISOString()).format(" YYYY/MM/DD"));
                 ctrl.events.push(activity);
             }
@@ -70,7 +73,6 @@ function activitiesController(moment, calendarConfig,activitiesService) {
     };
 
     ctrl.editActivities = function editActivities() {
-
 
     };
 
@@ -107,6 +109,9 @@ function activitiesController(moment, calendarConfig,activitiesService) {
 
     };
 
+    ctrl.changeView=function changeView(){
+        ctrl.changeViewIcon=!ctrl.changeViewIcon
+    }
 }
 
 activitiesController.$injector = ['moment', 'calendarConfig'];

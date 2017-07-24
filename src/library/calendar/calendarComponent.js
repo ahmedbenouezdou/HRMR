@@ -75,7 +75,7 @@ function calendarController() {
                 return 'weekEnd';
                 break;
             default :
-                var active = '';
+                var active = 'noactivitie';
                 ctrl.monthevents.events.some(function (element) {
                     if ((new Date(element.startsAt).getDate() == indexJour)){
                         switch (element.etat) {
@@ -86,15 +86,11 @@ function calendarController() {
                                 active = "activitie";
 
                                 break;
-
                         }
-                    return true;
+                        return true;
+                    }
                 }
-            else
-                active = 'noactivitie';
-        }
-    )
-        ;
+            );
         return active;
         break;
     }
