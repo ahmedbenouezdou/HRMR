@@ -6,18 +6,20 @@ function homeController() {
         ctrl.viewDetailLeave=false;
 
 
-        ctrl.xkey = 'range';
 
-        ctrl.ykeys = ['total_tasks',     'total_overdue'];
 
-        ctrl.labels = ['Total Tasks', 'Out of Budget Tasks'];
-
-        ctrl.myModel = [
-            { range: 'January', total_tasks: 20, total_overdue: 5 },
-            { range: 'January', total_tasks: 35, total_overdue: 8 },
-            { range: 'January', total_tasks: 20, total_overdue: 1 },
-            { range: 'January', total_tasks: 20, total_overdue: 6 }
-        ];
+        ctrl.elementDonut= 'morris-donut-chart';
+            ctrl.data= [{
+            label: "Download Sales",
+            value: 12
+        }, {
+            label: "In-Store Sales",
+            value: 30
+        }, {
+            label: "Mail-Order Sales",
+            value: 20
+        }];
+        ctrl.resize= true;
     };
 
     ctrl.viewDetailsRTT=function viewDetailsRTT(){
