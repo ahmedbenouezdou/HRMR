@@ -2,6 +2,8 @@ function activitiesController(moment, calendarConfig,activitiesService) {
     var ctrl = this;
 
     ctrl.newActiv = {};
+    var previousValueMonth, previousValueEvents;
+
     moment.locale('fr'); // change the locale to french
 
     calendarConfig.dateFormatter = 'moment'; // use moment instead of angular for formatting dates
@@ -44,6 +46,15 @@ function activitiesController(moment, calendarConfig,activitiesService) {
         };
 
         ctrl.changeViewIcon=true;
+    };
+
+    this.$doCheck = function () {
+
+        var currentValueEvents = ctrl.monthevents.events.length;
+        if (previousValueEvents !== currentValueEvents) {
+            console.log('je suis la : ' + ctrl.monthevents.events.length);
+            previousValueEvents = currentValueEvents;
+        }
     };
 
 

@@ -12,10 +12,40 @@
             <tbody>
             <tr ng-repeat="days in ctrl.calendarMonth">
 
-                    <td  ng-repeat="day in days" ng-class="day.classCss">{{day.day}}</td>
+                    <td  ng-repeat="day in days" ng-class="day.classCss" ng-click="ctrl.showModal($index)">{{day.day}}</td>
             </tr>
 
             </tbody>
         </table>
     </div>
 </div>
+<div class="row" >
+    <div class="col-xs-12 col-md-12 col-lg-12">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Titre activite</th>
+                <th>Date debut</th>
+                <th>Date Fin</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="activ in ctrl.monthevents.events">
+                <td>{{activ.title}}</td>
+                <td>{{activ.startsAt}}</td>
+                <td>{{activ.endsAt}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-circle" ng-click="ctrl.removeActivities($index)"><i
+                            class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-success btn-circle" ng-click="$ctrl.removeEdit($index)"><i
+                            class="fa fa-pencil"></i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

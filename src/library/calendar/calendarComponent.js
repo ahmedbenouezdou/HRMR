@@ -1,4 +1,4 @@
-function calendarController() {
+function calendarController($uibModal, $log, $document) {
     var ctrl = this;
 
     var previousValueMonth, previousValueEvents;
@@ -95,12 +95,36 @@ function calendarController() {
         break;
     }
 }
+
+    ctrl.removeActivities = function removeActivities(index) {
+        ctrl.monthevents.events.splice(index,1);
+    };
+
+    ctrl.showModal = function (index) {
+        ctrl.index=index;
+        var modalInstance = $uibModal.open({
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'src/library/calendar/myModalContent.html',
+            resolve: {
+                items: function () {
+                    return ctrl.items;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            $ctrl.selected = selectedItem;
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    };
 }
 
 
-calendarController.$injector = [];
+calendarController.$injector = ['$uibModal', '$log', '$document'];
 
-angular.module('calendarModule', []).component('calendarcomponent', {
+angular.module('calendarModule', ['ngAnimate', 'ngSanitize', 'ui.bootstrap']).component('calendarcomponent', {
     transclude: true,
     templateUrl: 'src/library/calendar/calendarView.html',
     controller: calendarController,
