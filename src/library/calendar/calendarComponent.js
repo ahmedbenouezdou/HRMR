@@ -41,12 +41,15 @@ function calendarController($uibModal, $log, $document) {
                 weekDay = [];
             }
 
+            var infoActivite = colorCssFunc(dateEvent.getDay(), dateEvent.getDate());
 
             weekDay.push({
                 date: dateEvent,
                 nbjour: dateEvent.getDay(),
                 day: i + 1,
-                classCss: colorCssFunc(dateEvent.getDay(), dateEvent.getDate())
+                classCss: infoActivite.css,
+                title: infoActivite.title,
+                indexOrg: infoActivite.index
             });
 
 
@@ -75,49 +78,53 @@ function calendarController($uibModal, $log, $document) {
                 return 'weekEnd';
                 break;
             default :
-                var active = 'noactivitie';
-                ctrl.monthevents.events.some(function (element) {
-                    if ((new Date(element.startsAt).getDate() == indexJour)){
-                        switch (element.etat) {
-                            case 0:
-                                active = "leave";
-                                break;
-                            case 1:
-                                active = "activitie";
+                var active = {css: "noactivitie", title: '', index: ''};
 
-                                break;
+                ctrl.monthevents.events.some(function (element, index) {
+                        if ((new Date(element.startsAt).getDate() == indexJour)) {
+                            switch (element.etat) {
+                                case 0:
+                                    active = {css: "leave", title: element.title, index: index};
+                                    break;
+                                case 1:
+                                    active = {css: "activitie", title: element.title, index: index};
+
+                                    break;
+                            }
+                            return true;
                         }
-                        return true;
                     }
-                }
-            );
-        return active;
-        break;
+                );
+                return active;
+                break;
+        }
     }
-}
 
     ctrl.removeActivities = function removeActivities(index) {
-        ctrl.monthevents.events.splice(index,1);
+
+        console.log(ctrl.monthevents.events);
     };
 
-    ctrl.showModal = function (index) {
-        ctrl.index=index;
-        var modalInstance = $uibModal.open({
-            ariaLabelledBy: 'modal-title',
-            ariaDescribedBy: 'modal-body',
-            templateUrl: 'src/library/calendar/myModalContent.html',
-            resolve: {
-                items: function () {
-                    return ctrl.items;
-                }
-            }
-        });
+    ctrl.showModal = function (indexParent, index) {
+        if (ctrl.calendarMonth[indexParent][index].classCss === "activitie") {
+             $uibModal.open({
+                ariaLabelledBy: 'modal-title',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: 'src/library/calendar/myModalContent.html',
+                controller: function ($scope) {
+                    $scope.selected = ctrl.calendarMonth[indexParent][index];
 
-        modalInstance.result.then(function (selectedItem) {
-            $ctrl.selected = selectedItem;
-        }, function () {
-            $log.info('Modal dismissed at: ' + new Date());
-        });
+                    $scope.validModif = function () {
+                        ctrl.monthevents.events[ctrl.calendarMonth[indexParent][index].indexOrg].title = $scope.selected.title;
+                        $uibModalInstance.dismiss('cancel');
+
+                    }
+                }
+            });
+
+        }
+
+
     };
 }
 

@@ -12,7 +12,7 @@
             <tbody>
             <tr ng-repeat="days in ctrl.calendarMonth">
 
-                    <td  ng-repeat="day in days" ng-class="day.classCss" ng-click="ctrl.showModal($index)">{{day.day}}</td>
+                    <td  ng-repeat="day in days" ng-class="day.classCss" ng-click="ctrl.showModal($parent.$index,$index)">{{day.day}}</td>
             </tr>
 
             </tbody>

@@ -2,10 +2,9 @@
     <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
 </div>
 <div class="modal-body" id="modal-body">
-  <input type="test">
-</div>
+    <input type="text" class="form-control" ng-model="selected.title" required/></div>
 <div class="modal-footer">
     <button class="btn btn-danger dropdown-toggle" type="button" ng-click="ctrl.removeActivities(ctrl.index)"><i class="glyphicon glyphicon-trash"></i> Delete</button>
-    <button class="btn btn-primary" type="button" ng-click="ctrl.validMModif()"><i class="glyphicon glyphicon-floppy-saved"></i> Save</button>
+    <button class="btn btn-primary" type="button" ng-click="validModif()"><i class="glyphicon glyphicon-floppy-saved"></i> Save</button>
     <button class="btn btn-warning" type="button" ng-click="ctrl.cancel()">Cancel</button>
 </div>
