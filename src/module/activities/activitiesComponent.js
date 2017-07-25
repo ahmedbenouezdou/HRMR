@@ -48,15 +48,6 @@ function activitiesController(moment, calendarConfig,activitiesService) {
         ctrl.changeViewIcon=true;
     };
 
-    this.$doCheck = function () {
-
-        var currentValueEvents = ctrl.monthevents.events.length;
-        if (previousValueEvents !== currentValueEvents) {
-            console.log('je suis la : ' + ctrl.monthevents.events.length);
-            previousValueEvents = currentValueEvents;
-        }
-    };
-
 
     ctrl.addActivities = function addActivities() {
         var diffDateEvent = (diffdate(new Date(ctrl.newActiv.startsAt), new Date(ctrl.newActiv.endsAt), 'd') + 1);
@@ -98,6 +89,7 @@ function activitiesController(moment, calendarConfig,activitiesService) {
 
 
     ctrl.previousMonth = function previousMonth() {
+
 
         ctrl.month = ctrl.month - 1;
         ctrl.monthYears = moment(new Date(ctrl.years, ctrl.month, 1)).format("MM/YYYY");
