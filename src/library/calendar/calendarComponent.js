@@ -116,7 +116,9 @@ function calendarController($uibModal, $log, $document) {
 
                     $scope.validModif = function () {
                         ctrl.monthevents.events[ctrl.calendarMonth[indexParent][index].indexOrg].title = $scope.selected.title;
-                        $uibModalInstance.dismiss('cancel');
+                    };
+                    $scope.removeActivities=function removeActivities(){
+                        ctrl.monthevents.events.splice(ctrl.calendarMonth[indexParent][index].indexOrg,1);
 
                     }
                 }
