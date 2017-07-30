@@ -32,6 +32,12 @@ appPersonnel.config(function($stateProvider) {
         component: 'myProfilComponent'
     };
 
+    var myInformation = {
+        name: 'myProfil.myInformation',
+        url: '/myInformation',
+        templateUrl: 'src/module/myProfil/myInformation.html'
+    };
+
     var gestionPersonnel = {
         name: 'gestionPersonnel',
         url: '/gestionPersonnel',
