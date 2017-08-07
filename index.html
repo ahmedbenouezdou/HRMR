@@ -11,10 +11,12 @@
 
     <title>Beezen Admin </title>
     <!-- inject:css -->
+    <link rel="stylesheet" href="css/angular-bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/angular-datepicker.css">
     <link rel="stylesheet" href="css/angular-datepicker.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/datetimepicker.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/morris.css">
@@ -251,7 +253,7 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a  ui-sref="myProfil" ui-sref-active="myProfil"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
@@ -288,17 +290,16 @@
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Gestion RH<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
+                                <li><a ui-sref="gestionPersonnel" ui-sref-active="active">Effectif</a></li>
                                 <li><a ui-sref="validCRA" ui-sref-active="active">Valider CRA</a></li>
                                 <li><a ui-sref="validDemande" ui-sref-active="active">Valider demande</a></li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a ui-sref="activities"><i class="fa fa-table fa-fw"></i> Tables</a>
+                            <a ui-sref="profil"><i class="fa fa-table fa-fw"></i> Profil</a>
                         </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                        </li>
+
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -388,20 +389,24 @@
     <script src="src/app.js"></script>
     <script src="src/library/calendar/calendarComponent.js"></script>
     <script src="src/library/dayManagement/dayManagement.js"></script>
-    <script src="src/library/directive/donutChart.js"></script>
-    <script src="src/module/gestionPersonnel/gestionPersonnelComponents.js"></script>
-    <script src="src/module/gestionPersonnel/gestionPersonnelService.js"></script>
+    <script src="src/module/CRA/validCRAComponents.js"></script>
+    <script src="src/module/CRA/validCRAService.js"></script>
     <script src="src/module/activities/activitiesComponent.js"></script>
     <script src="src/module/activities/activitiesRoute.js"></script>
     <script src="src/module/activities/activitiesService.js"></script>
+    <script src="src/module/gestionPersonnel/gestionPersonnelComponents.js"></script>
+    <script src="src/module/gestionPersonnel/gestionPersonnelService.js"></script>
     <script src="src/module/home/homeComponents.js"></script>
     <script src="src/module/home/homeService.js"></script>
-    <script src="src/module/CRA/validCRAComponents.js"></script>
-    <script src="src/module/CRA/validCRAService.js"></script>
-    <script src="src/module/leaveRequest/leaveRequestComponent.js"></script>
-    <script src="src/module/leaveRequest/leaveRequestService.js"></script>
+    <script src="src/module/myProfil/myProfilComponent.js"></script>
+    <script src="src/module/myProfil/myProfilService.js"></script>
+    <script src="src/module/profil/profilComponent.js"></script>
+    <script src="src/module/profil/profilService.js"></script>
     <script src="src/module/validLeave/demandeLeaveComponents.js"></script>
     <script src="src/module/validLeave/demandeLeaveService.js"></script>
+    <script src="src/library/directive/donutChart.js"></script>
+    <script src="src/module/leaveRequest/leaveRequestComponent.js"></script>
+    <script src="src/module/leaveRequest/leaveRequestService.js"></script>
     <!-- endinject -->
 
     <script src="data/morris-data.js"></script>

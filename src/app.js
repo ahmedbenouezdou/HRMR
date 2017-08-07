@@ -1,4 +1,4 @@
-var appPersonnel= angular.module('appPersonnel',['ui.router','activitiesModule','homeModule','720kb.datepicker', 'ngAnimate']);
+var appPersonnel= angular.module('appPersonnel',['ui.router','activitiesModule','homeModule','profilModule','myProfilModule','720kb.datepicker', 'ngAnimate']);
 
 appPersonnel.config(function($stateProvider) {
 
@@ -20,6 +20,23 @@ appPersonnel.config(function($stateProvider) {
         url: '/home',
         component: 'homeComponent'
     };
+    var profil = {
+        name: 'profil',
+        url: '/profil',
+        component: 'profilComponent'
+    };
+
+    var myProfil = {
+        name: 'myProfil',
+        url: '/myProfil',
+        component: 'myProfilComponent'
+    };
+
+    var myInformation = {
+        name: 'myProfil.myInformation',
+        url: '/myInformation',
+        templateUrl: 'src/module/myProfil/myInformation.html'
+    };
 
     var gestionPersonnel = {
         name: 'gestionPersonnel',
@@ -38,7 +55,7 @@ appPersonnel.config(function($stateProvider) {
             name: 'activities',
             url: '/activities',
             component: 'activitiescomponent'
-    }).state(validDemande).state(validCRA).state(gestionPersonnel);
+    }).state(validDemande).state(validCRA).state(gestionPersonnel).state(profil).state(myProfil);
 });
 
 appPersonnel.run(function(){
@@ -91,3 +108,5 @@ appPersonnel.run(function(){
 angular.module('activitiesModule',['mwl.calendar', 'ngAnimate','calendarModule']);
 angular.module('homeModule',['barchartModule']);
 angular.module('gestionPersonnelModule',[]);
+angular.module('profilModule',[]);
+angular.module('myProfilModule',[]);
