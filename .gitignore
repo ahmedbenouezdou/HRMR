@@ -10,3 +10,5 @@ bower_components
 /css/angular-datepicker.css
 /css/bootstrap-theme.min.css
 node_modules
+
+yarn.lock
