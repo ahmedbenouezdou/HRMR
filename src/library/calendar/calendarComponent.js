@@ -75,7 +75,7 @@ function calendarController($uibModal, $log, $document) {
         switch (nbjour) {
             case 0:
             case 6:
-                return 'weekEnd';
+                return  {css: "weekend", title: '', index: ''};;
                 break;
             default :
                 var active = {css: "noactivitie", title: '', index: ''};

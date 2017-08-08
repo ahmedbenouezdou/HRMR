@@ -7,8 +7,8 @@ angular.module('activitiesModule').service('activitiesService', function (calend
         var leaveValid = {
             title: 'Event 1',
             color: calendarConfig.colorTypes.warning,
-            startsAt: moment("03072017", "DD/MM/YYYY").startOf('day').toDate(),
-            endsAt: moment("03072017", "DD/MM/YYYY").startOf('day').toDate(),
+            startsAt: moment("03082017", "DD/MM/YYYY").startOf('day').toDate(),
+            endsAt: moment("03082017", "DD/MM/YYYY").startOf('day').toDate(),
             etat:0
         };
 

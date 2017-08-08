@@ -21,15 +21,15 @@ function activitiesController(moment, calendarConfig,activitiesService) {
             {
                 title: 'Event 1',
                 color: calendarConfig.colorTypes.info.primary,
-                startsAt: moment("13072017", "DD/MM/YYYY").startOf('day').toDate(),
-                endsAt: moment("13072017", "DD/MM/YYYY").startOf('day').toDate(),
+                startsAt: moment("13082017", "DD/MM/YYYY").startOf('day').toDate(),
+                endsAt: moment("13082017", "DD/MM/YYYY").startOf('day').toDate(),
                 etat:1
             },
             {
                 title: 'Event 2',
                 color: calendarConfig.colorTypes.info.primary,
-                startsAt: moment("05072017", "DD/MM/YYYY").startOf('day').toDate(),
-                endsAt: moment("05072017", "DD/MM/YYYY").startOf('day').toDate(),
+                startsAt: moment("05082017", "DD/MM/YYYY").startOf('day').toDate(),
+                endsAt: moment("05082017", "DD/MM/YYYY").startOf('day').toDate(),
                 etat:1
             }
         ];
