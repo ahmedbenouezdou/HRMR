@@ -3,6 +3,10 @@ function gestionPersonnelController() {
     console.log("je suis la");
     ctrl.$onInit=function $onInit(){
         ctrl.initvar='hhh';
+    };
+
+    ctrl.addPersonne=function addPersonne(){
+
     }
 }
 

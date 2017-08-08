@@ -1,4 +1,4 @@
-var appPersonnel= angular.module('appPersonnel',['ui.router','activitiesModule','homeModule','profilModule','myProfilModule','720kb.datepicker', 'ngAnimate']);
+var appPersonnel= angular.module('appPersonnel',['ui.router','activitiesModule','homeModule','profilModule','myProfilModule','720kb.datepicker', 'ngAnimate','gestionPersonnelModule','leaveRequestModule']);
 
 appPersonnel.config(function($stateProvider) {
 
@@ -108,5 +108,6 @@ appPersonnel.run(function(){
 angular.module('activitiesModule',['mwl.calendar', 'ngAnimate','calendarModule']);
 angular.module('homeModule',['barchartModule']);
 angular.module('gestionPersonnelModule',[]);
+angular.module('leaveRequestModule',[]);
 angular.module('profilModule',[]);
 angular.module('myProfilModule',[]);

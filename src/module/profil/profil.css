@@ -182,20 +182,19 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+
 }
 
 .card.hovercard {
     position: relative;
     padding-top: 0;
-    overflow: hidden;
     text-align: center;
     background-color: rgba(214, 224, 226, 0.2);
+    margin-top: 53px;
 }
 
 .card.hovercard .cardheader {
-    background: url("http://lorempixel.com/850/280/nature/4/");
     background-size: cover;
-    height: 135px;
 }
 
 .card.hovercard .avatar {
