@@ -1,6 +1,6 @@
 var appPersonnel= angular.module('appPersonnel',['ui.router','activitiesModule','homeModule','profilModule','myProfilModule','720kb.datepicker', 'ngAnimate','gestionPersonnelModule','leaveRequestModule']);
 
-appPersonnel.config(function($stateProvider) {
+appPersonnel.config(function($stateProvider,$urlRouterProvider) {
 
 
     var validDemande = {
@@ -56,6 +56,7 @@ appPersonnel.config(function($stateProvider) {
             url: '/activities',
             component: 'activitiescomponent'
     }).state(validDemande).state(validCRA).state(gestionPersonnel).state(profil).state(myProfil);
+    $urlRouterProvider.otherwise('/home');
 });
 
 appPersonnel.run(function(){

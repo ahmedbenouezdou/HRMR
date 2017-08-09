@@ -8,19 +8,61 @@
 
 </div>
 
+
 <div class="row">
-    <div class="col-xs-offset-11 col-md-offset-11 col-lg-offset-11">
-        <button type="button" class="btn btn-success btn-circle" ng-click="$ctrl.addActivities()" >
-            <i class="fa glyphicon-plus"></i>
-        </button>
-    </div>
-    <!-- /.col-lg-12 -->
+    <form name="newFeed" novalidate>
+        <div class="col-xs-12 col-md-3 col-lg-4">
+            <div class="form-group">
+                <select class="form-control" id="sel1" ng-model="$ctrl.newLeave.title">
+                    <option>RTT</option>
+                    <option>Congés Payés</option>
+                    <option>Congés Exceptionnels</option>
+                    <option>Intercontrat</option>
+                    <option>Autres Absences</option>
+                    <option>Formation</option>
+                    <option>Maladie</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3 col-lg-3">
+            <datepicker date-format="yyyy-MM-dd" selector="form-control" date-disabled-weekdays="[0,6]"
+                        date-disabled-dates="{{$ctrl.disabledDates}}">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Date debut" ng-model="$ctrl.newActiv.startsAt"
+                           ng-change="$ctrl.initDate()" required/>
+        <span class="input-group-addon" style="cursor: pointer">
+        <i class="fa fa-lg fa-calendar"></i>
+        </span>
+                </div>
+            </datepicker>
+        </div>
+
+        <div class="col-xs-12 col-md-3 col-lg-3">
+            <datepicker date-format="yyyy-MM-dd" selector="form-control" date-disabled-weekdays="[0,6]"
+                        date-min-limit="{{$ctrl.newActiv.startsAt}}" date-disabled-dates="{{$ctrl.disabledDates}}">
+                <div class="input-group">
+                    <input class="form-control" placeholder="Date Fin" ng-model="$ctrl.newActiv.endsAt" type="text"
+                           required/>
+        <span class="input-group-addon" style="cursor: pointer">
+        <i class="fa fa-lg fa-calendar"></i>
+        </span>
+                </div>
+            </datepicker>
+        </div>
+
+        <div class="col-xs-12 col-md-3 col-lg-2">
+            <button type="button" class="btn btn-success btn-circle" ng-click="$ctrl.addActivities()"
+                    ng-disabled="!newFeed.$valid">
+                <i class="fa glyphicon-plus"></i>
+            </button>
+        </div>
+    </form>
 </div>
+
 <div class="row">
     <table class="table">
         <thead>
         <tr>
-            <th>Consultant</th>
             <th>Date debut</th>
             <th>Date Fin</th>
             <th>Nombre de jour</th>
@@ -29,7 +71,6 @@
         </thead>
         <tbody>
         <tr>
-            <td>John</td>
             <td>25/09/1748</td>
             <td>25/11/1748</td>
             <td>20</td>
@@ -45,7 +86,6 @@
             </td>
         </tr>
         <tr>
-            <td>John</td>
             <td>25/09/1748</td>
             <td>25/11/1748</td>
             <td>20</td>
@@ -61,7 +101,6 @@
             </td>
         </tr>
         <tr>
-            <td>John</td>
             <td>25/09/1748</td>
             <td>25/11/1748</td>
             <td>20</td>

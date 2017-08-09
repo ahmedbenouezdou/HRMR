@@ -101,7 +101,6 @@ function calendarController($uibModal, $log, $document) {
     }
 
     ctrl.removeActivities = function removeActivities(index) {
-
         console.log(ctrl.monthevents.events);
     };
 
